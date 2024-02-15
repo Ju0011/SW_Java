@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="cs1302-gameutil">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/JavaEx/lib/cs1302-gameutil.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
