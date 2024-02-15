@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HW_0214/HW_0214.iml" filepath="$PROJECT_DIR$/HW_0214/HW_0214.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaEx/JavaEx.iml" filepath="$PROJECT_DIR$/JavaEx/JavaEx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ws01_java.iml" filepath="$PROJECT_DIR$/.idea/ws01_java.iml" />
+    </modules>
+  </component>
+</project>
