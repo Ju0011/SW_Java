@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>음식 주문</title>
+</head>
+
+<body>
+    <div id="orderForm">
+        <h2>음식 주문</h2>
+        <form id="foodForm">
+            <label><input type="radio" name="menu" value="피자"> 피자 (10,000원)</label><br>
+            <label><input type="radio" name="menu" value="햄버거"> 햄버거 (8,000원)</label><br>
+            <label><input type="radio" name="menu" value="치킨"> 치킨 (15,000원)</label><br>
+            <label><input type="radio" name="menu" value="reset" id="resetButton"> 초기화 </label><br>
+
+            <input type="submit" value="주문하기">
+        </form>
+    </div>
+    <div id="totalAmount" style="display: none;">
+        <h2>총 금액</h2>
+        <p id="totalPrice">0원</p>
+    </div>
+
+    <script>
+        document.getElementById('foodForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // 폼 제출 동작 중지
+            var selectedFood = document.querySelector('input[name="menu"]:checked');
+
+            if (!selectedFood) {
+                alert('음식을 선택해주세요!');
+                return;
+            }
+            if (selectedFood.value == "reset") {
+                document.getElementById('totalPrice').textContent = '0원';
+                document.getElementById('orderForm').style.display = 'block';
+                document.getElementById('totalAmount').style.display = 'none';
+            }
+
+            var foodPrice = getPrice(selectedFood.value);
+            updateTotalPrice(foodPrice);
+        });
+
+        document.getElementById('resetButton').addEventListener('submit', function (event) {
+            document.getElementById('totalPrice').textContent = '0원';
+            document.getElementById('orderForm').style.display = 'block';
+            document.getElementById('totalAmount').style.display = 'none';
+        });
+
+        function getPrice(menu) {
+            switch (menu) {
+                case '피자':
+                    return 10000;
+                case '햄버거':
+                    return 8000;
+                case '치킨':
+                    return 15000;
+                case '초기화':
+                    document.getElementById('totalPrice').textContent = '0원';
+                    document.getElementById('orderForm').style.display = 'block';
+                    document.getElementById('totalAmount').style.display = 'none';
+                default:
+                    return 0;
+            }
+        }
+
+        function updateTotalPrice(price) {
+            var totalPriceElement = document.getElementById('totalPrice');
+            var currentTotalPrice = parseInt(totalPriceElement.textContent);
+            var newTotalPrice = currentTotalPrice + price;
+            totalPriceElement.textContent = newTotalPrice + '원';
+            document.getElementById('orderForm').style.display = 'block';
+            document.getElementById('totalAmount').style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>

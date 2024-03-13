@@ -1,0 +1,118 @@
+<!-- 문제 : 메뉴에 마우스를 올리면 submenu 가 보이도록 합니다.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin:  0;
+            padding: 0; 
+        }
+        body{ 
+            font-family: '맑은 고딕', 'Malgun Gothic','돋움', Helvetica,sans-serif;
+        }
+        .container{ 
+            display: flex; 
+            justify-content: center;
+            background: #c5e9fe;  
+        }
+        .wrap-visual { 
+            height: 500px;
+            width: 70%;
+            display: grid;   
+        } 
+        #menu {
+            display: flex;
+            flex-direction: row; 
+            justify-content: right;
+            padding: 10px 0  0  0;
+        }
+        ul {
+            list-style-type: none ;
+            height: 27px;
+        }
+        li{
+            float: left;
+            width:100px ; 
+            height:22px; 
+            margin-right:2px ; 
+        }
+        li:hover, #next{
+            cursor: pointer;
+        }
+        .submenu{
+            margin: 10px 10px 10px -30px;
+            padding: 10px 0 0 10px  ;
+            background-color: white;
+            width: 100px;
+            height: 100px;
+        }
+        img{
+            margin: 0 auto;
+        }
+        #next {
+            background:inherit;  
+            border: 0; 
+        }
+
+        #second{
+            display: none;
+        }
+        .menu   li > * {
+            display: none;
+        }
+    </style>
+    <title> 카카오클라우드 개발자반 은행 </title>
+</head>
+<body>
+    <div class="container" >
+    <div class="wrap-visual"  > 
+        <div id="menu"> 
+            <nav>  
+                <ul class="menu">
+                    <li>개인  
+                    </li>
+                    <li>기업   
+                    </li>
+                    <li>금융상품   
+                    </li>
+                </ul>
+            </nav>
+        </div> 
+        <div id="first" > 
+            <strong><img src="https://www.kbstar.com/2018/img/visual/visual_section89_tit01.png" alt="개인고객은 물론, 개인사업자까지 누구나 타행이체 수수료 면제"></strong>
+            <span><img src="https://www.kbstar.com/2018/img/visual/visual_section89_tit02.png" alt="KB스타뱅킹·인터넷뱅킹으로 타행이체, 자동이체 수수료 걱정 끝"></span>
+        </div>
+        <div id="second" > 
+            <strong><img src="https://www.kbstar.com/2018/img/visual/visual_section100_tit01.png" alt="오늘은 취준, 내일은 출근 2023 제1차 KB굿잡 우수기업 취업박람회"></strong>
+            <span><img src="https://www.kbstar.com/2018/img/visual/visual_section100_tit02.png" alt="2023.5.22(월)~5.23(화), 10:00~17:00 서울 COEX B홀"></span>
+        </div>
+        <br> 
+        <button id="next" >다음</button>
+    </div>
+    
+</div>    
+</body>
+<script> 
+    const firstPage = document.getElementById('first');
+    const secondPage = document.getElementById('second');
+    const nextButton = document.getElementById('next');
+
+    nextButton.addEventListener('click', function() {
+        if (firstPage.style.display === 'none') {
+            firstPage.style.display = 'block';
+            secondPage.style.display = 'none';
+        } else {
+            firstPage.style.display = 'none';
+            
+            secondPage.style.display = 'block';
+        }
+    });
+      
+</script>
+</html>
+
+ 
