@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="num1" /> 
+    <input type="text" id="num2" /> 
+    <br>
+    <input type="button" value="+" />
+    <input type="button" value="-" />
+    <input type="button" value="*" />
+    <input type="button" value="/" /> 
+    <br>
+    <input type="text" id="result" disabled /> 
+    <script> 
+       function calculate( btn ) {
+            var num1 = document.querySelector("#num1").value;
+            var num2 = document.querySelector("#num2").value; 
+            num1 = Number(num1);
+            num2 = parseInt(num1);  
+            switch(  btn.value ) {
+                case "+" : document.querySelector("#result").value = num1+num2; break;
+                case "-" : document.querySelector("#result").value = num1-num2; break;
+                case "/" : document.querySelector("#result").value = num1/num2; break;
+                case "*" : document.querySelector("#result").value = num1*num2; break;
+            }
+            
+        }
+        var btns = document.querySelectorAll("input[type='button']") 
+        for( let i = 0 ; i < btns.length ; i++){
+            btns[i].onclick = function() {
+                calculate( this ) 
+            };
+        }
+        
+    </script>
+</body>
+</html>
